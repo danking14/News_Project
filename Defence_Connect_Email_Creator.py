@@ -6,7 +6,7 @@ from datetime import date
 import traceback
 today = date.today().strftime("%Y_%m_%d")
 GlobalConfiguration = {
-    "apiKey" : "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"
+    "apiKey" : "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"
 }
 
 DefenceConnectConfiguration = {
@@ -29,7 +29,7 @@ DefenceConnectLand = {
     "folder_path": f"./{today}-land-amphibious",
     "file_name": f"{today}-land-amphibious\\{today}-land-amphibious-links.txt",
     "parentURL": DefenceConnectConfiguration["parentURL"],
-    "apiKey": "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"
+    "apiKey": GlobalConfiguration["apiKey"]
 }
 DefenceConnectIntelCyber = {
     "url": "https://www.defenceconnect.com.au/intel-cyber",
@@ -42,8 +42,7 @@ DefenceConnectIntelCyber = {
     "folder_path": f"./{today}-intel-cyber",
     "file_name": f"{today}-intel-cyber\\{today}-intel-cyber-links.txt",
     "parentURL": DefenceConnectConfiguration["parentURL"],
-    "apiKey": "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"
-}
+    "apiKey": GlobalConfiguration["apiKey"]}
 
 DefenceConnectStrikeAirCombat = {
     "url": "https://www.defenceconnect.com.au/strike-air-combat",
@@ -56,7 +55,7 @@ DefenceConnectStrikeAirCombat = {
     "folder_path": f"./{today}-strike-air-combat",
     "file_name": f"{today}-strike-air-combat\\{today}-strike-air-combat-links.txt",
     "parentURL": DefenceConnectConfiguration["parentURL"],
-    "apiKey": "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"
+    "apiKey": GlobalConfiguration["apiKey"]
 }
 # file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None
 dictionary = [DefenceConnectLand, DefenceConnectIntelCyber,
