@@ -1,0 +1,57 @@
+All:
+    ☐ Add relative paths and set up file structure so it is transportable (cwd???)
+    ☐ Rename to Link_Scraper and Article_Scraper to keep it simple and build versatility and reuse into each tool
+
+Link Scraper:
+    ☐ Add for website in websites loop that outputs a different folder and link file for each website
+        ☐ Make this a function w/ URL parameters, Regexmatch, etc
+    ☐ def scrape_all_urls - tuples!
+
+Article Scraper:
+    ☐ add article link to bottom of each article
+
+AI Summariser:
+    ☐ Tell it to output the article link rather than the file name at the top of each.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###HELP
+###Projects:
+
+* Anything with colon at the end of the line is a project title
+* You can nest projects inside each other
+* You can fold projects and sub projects
+###Tasks:
+
+New Task:
+    * Press Cmd+Enter (Ctrl+Enter on Windows and Linux) to add a new task
+    * You can also use the Command pallette to create a new task by typing To Do:New Task
+    * If you are on a new line, it will create a new task on the current line
+    * If you are on a line with some text pressing new task shortcut will convert it to a task
+    * New tasks are nested as much as the previous task
+
+More Actions:
+    * Complete a task by pressing Alt+d @done
+    * Re-open a completed task by pressing Alt+d
+    * Cancel a task by pressing Alt+c @cancelled
+    * Complete a cancelled task by pressing Alt+d
+    * You can also use the Command pallette to complete or cancel a task by typing 
+      To Do:Complete Task or To Do:Cancel Task 
+
+Tagging:
+    * You can add tags using @ sign, like this @tag
+    * You can use following pre-existing tags to mark tasks @critical @high @low @today 
+    * Auto intellisense is provided to help you in finding tags
