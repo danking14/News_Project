@@ -14,7 +14,7 @@ DefenceConnectConfiguration = {
     "classes_to_exclude": ["row3-container", "b-article__intro"],
     # "photogalleries", "latest-jobs", "majorprojects"
     "ids_to_exclude": ["photogalleries", "latest-jobs", "majorprojects"],
-    "strings_to_exclude": ["Get notifications in real-time for staying up to date with content that matters to you.", "Already have an account? Sign in below:"],
+    "strings_to_exclude": ["Get notifications in real-time for staying up to date with content that matters to you.", "Already have an account? Sign in below:", "Subscribe to the Defence Connect daily newsletter. Be the first to hear the latest developments in the defence industry.", "More to follow"],
     "parentURL": "https://www.defenceconnect.com.au"
 }
 
@@ -58,7 +58,7 @@ DefenceConnectStrikeAirCombat = {
     "apiKey": GlobalConfiguration["apiKey"]
 }
 # file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None
-dictionary = [DefenceConnectLand]
+dictionary = [DefenceConnectLand, DefenceConnectStrikeAirCombat]
 
 try:
     scrape_all_urls(dictionary)

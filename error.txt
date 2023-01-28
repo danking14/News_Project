@@ -1,0 +1,24 @@
+Error in running scrape_all_urls :Traceback (most recent call last):
+  File "c:\Users\User\Desktop\News_Project\Defence_Connect_Email_Creator.py", line 65, in <module>
+    scrape_all_urls(dictionary)
+  File "c:\Users\User\Desktop\News_Project\Modules\Link_Scraper.py", line 61, in scrape_all_urls
+    links = get_links(url=url['url'], subDirectoryRegexMatch=url['subDirectoryRegexMatch'], filterString=url['filterString'])
+TypeError: get_links() got an unexpected keyword argument 'subDirectoryRegexMatch'
+Error in running scrape_all_urls :Traceback (most recent call last):
+  File "c:\Users\User\Desktop\News_Project\Defence_Connect_Email_Creator.py", line 85, in <module>
+    scrape_all_urls(dictionary)
+  File "c:\Users\User\Desktop\News_Project\Modules\Link_Scraper.py", line 68, in scrape_all_urls
+    links = get_links(url=url['url'], divToScrape=url['divToScrape'], subDirectoryRegexMatch=url['subDirectoryRegexMatch'], linkFilterString=url['linkFilterString'])
+KeyError: 'divToScrape'
+Error in running scrape_all_urls :Traceback (most recent call last):
+  File "c:\Users\User\Desktop\News_Project\Defence_Connect_Email_Creator.py", line 85, in <module>
+    scrape_all_urls(dictionary)
+  File "c:\Users\User\Desktop\News_Project\Modules\Link_Scraper.py", line 61, in scrape_all_urls
+    links = get_links(url=url['url'], subDirectoryRegexMatch=url['subDirectoryRegexMatch'], filterString=url['filterString'])
+KeyError: 'filterString'
+Error in running scrape_all_urls :Traceback (most recent call last):
+  File "c:\Users\User\Desktop\News_Project\Defence_Connect_Email_Creator.py", line 85, in <module>
+    scrape_all_urls(dictionary)
+  File "c:\Users\User\Desktop\News_Project\Modules\Link_Scraper.py", line 61, in scrape_all_urls
+    links = get_links(url=url['url'], subDirectoryRegexMatch=url['subDirectoryRegexMatch'], filterString=url['filterString'])
+KeyError: 'filterString'
