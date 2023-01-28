@@ -58,8 +58,7 @@ DefenceConnectStrikeAirCombat = {
     "apiKey": GlobalConfiguration["apiKey"]
 }
 # file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None
-dictionary = [DefenceConnectLand, DefenceConnectIntelCyber,
-              DefenceConnectStrikeAirCombat]
+dictionary = [DefenceConnectLand]
 
 try:
     scrape_all_urls(dictionary)
