@@ -1,12 +1,13 @@
 from Modules.Link_Scraper import scrape_all_urls
 from Modules.Extract_Articles import extract_all_articles
-from Modules.OpenAI_Summarisation import summarize_all_articles
+from Modules.OpenAI_Summarisation import summarize_all_articles; from Modules.OpenAI_Summarisation import get_API_key
 import time
 from datetime import date
 import traceback
 today = date.today().strftime("%Y_%m_%d")
+
 GlobalConfiguration = {
-    "apiKey" : "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"
+    "apiKey" : get_API_key("OpenAIAPIKey.txt")
 }
 
 DefenceConnectConfiguration = {
@@ -16,6 +17,13 @@ DefenceConnectConfiguration = {
     "ids_to_exclude": ["photogalleries", "latest-jobs", "majorprojects"],
     "strings_to_exclude": ["Get notifications in real-time for staying up to date with content that matters to you.", "Already have an account? Sign in below:", "Subscribe to the Defence Connect daily newsletter. Be the first to hear the latest developments in the defence industry.", "More to follow"],
     "parentURL": "https://www.defenceconnect.com.au"
+}
+
+GoAutoConfiguration = {
+    "classes_to_exclude": None,
+    "ids_to_exclude": None,
+    "strings_to_exclude": None,
+    "parentURL": "https://www.goauto.com.au/"
 }
 
 DefenceConnectLand = {
@@ -57,8 +65,23 @@ DefenceConnectStrikeAirCombat = {
     "parentURL": DefenceConnectConfiguration["parentURL"],
     "apiKey": GlobalConfiguration["apiKey"]
 }
-# file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None
-dictionary = [DefenceConnectLand, DefenceConnectStrikeAirCombat]
+
+GoAutoNews = {
+    "url": "https://www.goauto.com.au/news",
+    "subDirectoryRegexMatch": None,
+    "filterString": None,
+    "newsSourceName": "go-auto-news",
+    "classes_to_exclude": GoAutoConfiguration["classes_to_exclude"],
+    "ids_to_exclude": GoAutoConfiguration["ids_to_exclude"],
+    "strings_to_exclude": GoAutoConfiguration["strings_to_exclude"],
+    "folder_path": f"./{today}-go-auto-news",
+    "file_name": f"{today}-go-auto-news\\{today}-go-auto-news-links.txt",
+    "parentURL": GoAutoConfiguration["parentURL"],
+    "apiKey": GlobalConfiguration["apiKey"]
+}
+
+
+dictionary = [DefenceConnectIntelCyber]
 
 try:
     scrape_all_urls(dictionary)

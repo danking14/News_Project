@@ -4,6 +4,18 @@ It takes the following arguments:
 Argument: folder_path - the path to the folder where the links are saved
 Argument: apiKey - the API key for the OpenAI API
 '''
+def get_API_key(APIKey):
+    """ Given a OpenAIAPIKey.txt,
+        return the contents of that file
+    """
+    try:
+        with open(APIKey, 'r') as f:
+            # It's assumed our file contains a single line,
+            # with our API key
+            return f.read().strip()
+    except FileNotFoundError:
+        print("'%s' file not found" % APIKey)
+
 def summarize_articles(folder_path, apiKey):
     import os
     import openai
@@ -28,7 +40,7 @@ def summarize_articles(folder_path, apiKey):
                     noLinkArticle = lines[:-1] #This is everything except the last line of the file.
                     article = ''.join(map(str,noLinkArticle)) #This joins the list of lines into a string. OpenAI seems to prefer a single string.
                     print(article)
-                    prompt = f"Can you summarise this news article into five key dot points {article}"
+                    prompt = f"Can you summarise this news article into five key points. The points should be numbered. Here is the article: {article}"
                     summary = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=1000, api_key=apiKey)
                     f.write(f"\n\n{filename}\n\n")
                     print(summary.choices[0].text)

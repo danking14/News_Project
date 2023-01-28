@@ -1,17 +1,17 @@
 All:
-    ☐ Add relative paths and set up file structure so it is transportable (cwd???)
-    ☐ Rename to Link_Scraper and Article_Scraper to keep it simple and build versatility and reuse into each tool
+    ✔ Add relative paths and set up file structure so it is transportable (cwd???) @done (28/01/2023, 12:50:00 pm)
+    ✔ Rename to Link_Scraper and Extract_Articles to keep it simple and build versatility and reuse into each tool @done (28/01/2023, 12:48:47 pm)
 
 Link Scraper:
-    ☐ Add for website in websites loop that outputs a different folder and link file for each website
-        ☐ Make this a function w/ URL parameters, Regexmatch, etc
-    ☐ def scrape_all_urls - tuples!
+    ✔ Add for website in websites loop that outputs a different folder and link file for each website @done (28/01/2023, 12:48:23 pm)
+        ✔ Make this a function w/ URL parameters, Regexmatch, etc @done (28/01/2023, 12:48:21 pm)
+    ✔ def scrape_all_urls - tuples! @done (28/01/2023, 12:48:27 pm) Used Dictionaries instead
 
 Article Scraper:
-    ☐ add article link to bottom of each article
+    ✔ add article link to bottom of each article @done (28/01/2023, 12:47:34 pm)
 
 AI Summariser:
-    ☐ Tell it to output the article link rather than the file name at the top of each.
+    ☐ Add headline at top of each article. Use the end of each link.
 
 
 
