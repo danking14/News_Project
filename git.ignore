@@ -1,3 +1,3 @@
 # ignore folders starting with YYYY_MM_DD
 /20??_??_??/
-OpenAIAPIKey.txt
+OpenAI_APIKey.txt
