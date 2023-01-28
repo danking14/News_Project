@@ -46,6 +46,7 @@ def extract_articles(file_name, folder_path, classes_to_exclude=None, ids_to_exc
                         continue
                     content += paragraph.getText()
                     content += '\n'
+                content += link
                 file_name = f"{folder_path}\\{today}_{link.split('/')[-1]}.txt"
                 with open(file_name, "w", encoding='utf-8') as f:
                     f.write(content)

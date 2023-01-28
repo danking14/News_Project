@@ -1,3 +1,9 @@
+'''
+The purpose of this function is to scrape the links from a list of urls and save them to a text file.
+It takes the following arguments:
+Argument: folder_path - the path to the folder where the links are saved
+Argument: apiKey - the API key for the OpenAI API
+'''
 def summarize_articles(folder_path, apiKey):
     import os
     import openai
@@ -25,6 +31,8 @@ def summarize_articles(folder_path, apiKey):
                     done_files += 1
                     print(f"{done_files} out of {total_files} files have been done.")
     print("Summary file created at: ", summary_file)
+
+
 
 def summarize_all_articles(options):
     for option in options:
