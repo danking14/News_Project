@@ -8,6 +8,15 @@ from datetime import date
 import traceback
 today = date.today().strftime("%Y_%m_%d")
 
+"""
+The following dictionaries are structured as:
+GlobalConfiguration: For keys that are used across multiple dictionaries.
+Website Specific Configuration: For keys that are specific to a website.
+Sub-Website Specific Configuration: For keys that are specific to a sub-website of a website.
+These dictionaries are passed to all the functions that need them.
+
+"""
+
 GlobalConfiguration = {
     "apiKey": get_API_key("OpenAI_APIKey.txt")
 }
@@ -120,19 +129,20 @@ SMHBankingandFinance = {
     "headline_tag": SMHBusinessConfiguration["headline_tag"]
 }
 
-dictionary = [SMHBankingandFinance]
-
-# try:
-#      scrape_all_urls(dictionary)
-# except Exception as e:
-#     with open("error.txt", "a", encoding='utf8') as f:
-#         f.write("Error in running scrape_all_urls :")
-#         f.write(traceback.format_exc())
+dictionary = [SMHBankingandFinance] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
 
 
-
-# extract_all_articles(dictionary)
-
-# summarize_all_articles(dictionary)
-
+"""
+The next 4 functions are the main functions that will be called to scrape, extract, summarize and process the articles.
+I need to add and test error handling for these functions.
+"""
+try:
+     scrape_all_urls(dictionary)
+except Exception as e:
+    with open("error.txt", "a", encoding='utf8') as f:
+        f.write("Error in running scrape_all_urls :")
+        f.write(traceback.format_exc())
+        
+extract_all_articles(dictionary)
+summarize_all_articles(dictionary)
 process_all_files(dictionary)

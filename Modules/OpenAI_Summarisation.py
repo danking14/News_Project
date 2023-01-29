@@ -1,9 +1,3 @@
-'''
-The purpose of this function is to scrape the links from a list of urls and save them to a text file.
-It takes the following arguments:
-Argument: folder_path - the path to the folder where the links are saved
-Argument: apiKey - the API key for the OpenAI API
-'''
 def get_API_key(APIKey):
     """ Given a OpenAIAPIKey.txt,
         return the contents of that file
@@ -17,6 +11,11 @@ def get_API_key(APIKey):
         print("'%s' file not found" % APIKey)
 
 def summarize_articles(folder_path, apiKey):
+    """
+    This function takes a folder path and an API key and uses the OpenAI API to summarise the articles in the folder.
+    Argument: folder_path: The path to the folder containing the articles to be summarised.
+    Argument: apiKey: The API key for the OpenAI API.
+    """
     import os
     import openai
     from datetime import date
@@ -55,8 +54,11 @@ def summarize_articles(folder_path, apiKey):
                     # print(f"{done_files} out of {total_files} files have been done.")
     print("Summary file created at: ", summary_file)
 
-    
-
+"""
+This function summarises all the articles in a folder. It outputs a summary file with the date in the name.
+This function is normally called from the Email_Creator.py file.
+It gets passed a list of dictionaries. Each dictionary contains the folder path and the API key.
+"""
 def summarize_all_articles(options):
     for option in options:
         summarize_articles(option["folder_path"], option["apiKey"])

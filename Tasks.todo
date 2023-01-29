@@ -1,6 +1,7 @@
 All:
     ✔ Add relative paths and set up file structure so it is transportable (cwd???) @done (28/01/2023, 12:50:00 pm)
     ✔ Rename to Link_Scraper and Extract_Articles to keep it simple and build versatility and reuse into each tool @done (28/01/2023, 12:48:47 pm)
+    ☐ Add Error Handling to all functions.
 
 Link Scraper:
     ✔ Add for website in websites loop that outputs a different folder and link file for each website @done (28/01/2023, 12:48:23 pm)
@@ -11,11 +12,11 @@ Article Scraper:
     ✔ add article link to bottom of each article @done (28/01/2023, 12:47:34 pm)
 
 AI Summariser:
-    ☐ Add headline at top of each article. Use the end of each link.
+    ✔ Add headline at top of each article. Use the end of each link. @done (29/01/2023, 8:18:33 pm)
 
 HTML Formatter:
-    ☐ Build a HTML Formatter that takes Summary Files and outputs a tidy HTML file with a table of contents and links to each article.
-    ☐ Each formatted output should be by website and date. It should have a title, table of contents, and links to each article.
+    ✔ Build a HTML Formatter that takes Summary Files and outputs a tidy HTML file with a table of contents and links to each article. @done (29/01/2023, 8:18:30 pm)
+    ✔ Each formatted output should be by website and date. It should have a title, table of contents, and links to each article. @done (29/01/2023, 8:18:28 pm)
 
 
 

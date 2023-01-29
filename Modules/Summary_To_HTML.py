@@ -1,12 +1,21 @@
 import re
 import os
 
+"""
+This function splits a text file into a list of articles. This is passed to the process_file function.
+The file_path argument is the path of the file to split, which is the summary file created by the OpenAI Summarisation module.
+"""
 def get_articles_from_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         text = file.read()
         articles = text.split("ARTICLE_DELIMITER")
     return articles
 
+"""
+The function processes the summary articles and converts them to HTML.
+The file_path argument is the path of the file to split, which is the summary file created by the OpenAI Summarisation module.
+The output argument is the path of the file to save the HTML to.
+"""
 def process_file(file_path, output):
     articles = get_articles_from_file(file_path)
     processed_articles = []
@@ -38,7 +47,12 @@ def process_file(file_path, output):
         out.write(final_text)
         
 
-
+"""
+This function processes all the files in the options list. This list is passed to the function from the Email_Creator.py module.
+A dictionary is passed to the function for each file to process. The dictionary contains the following relevant keys:
+Key: file_path - the path of the file to split, which is the summary file created by the OpenAI Summarisation module.
+Key: output - the path of the file to save the HTML to.
+"""
 
 def process_all_files(options):
     for option in options:
