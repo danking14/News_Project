@@ -42,7 +42,7 @@ def summarize_articles(folder_path, apiKey):
                     article = ''.join(map(str,noLinkArticle)) #This joins the list of lines into a string. OpenAI seems to prefer a single string.
                     print(article)
                     prompt = f"Can you summarise this news article into five key points. The points should be tagged with a hyphen and space. Like this: - Point 1. Here is the article: {article}"
-                    summary = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=1000, api_key=apiKey)
+                    summary = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=750, api_key=apiKey)
                     print(headline)
                     print(summary.choices[0].text)
                     f.write(f"{headline}")

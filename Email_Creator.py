@@ -95,6 +95,24 @@ DefenceConnectStrikeAirCombat = {
     "output": f"{today}-strike-air-combat\\{today}-strike-air-combat-output.html"
 }
 
+DefenceConnectMaritimeAntiSub = {
+    "url": "https://www.defenceconnect.com.au/strike-air-combat",
+    "subDirectoryRegexMatch": "maritime-antisub/\d+",
+    "filterString": "#ccomment-content-",
+    "newsSourceName": "maritime-antisub",
+    "classes_to_exclude": DefenceConnectConfiguration["classes_to_exclude"],
+    "ids_to_exclude": DefenceConnectConfiguration["ids_to_exclude"],
+    "strings_to_exclude": DefenceConnectConfiguration["strings_to_exclude"],
+    "folder_path": f"./{today}-maritime-antisub",
+    "file_name": f"{today}-maritime-antisub\\{today}-maritime-antisub-links.txt",
+    "parentURL": DefenceConnectConfiguration["parentURL"],
+    "apiKey": GlobalConfiguration["apiKey"],
+    "headline_tag": DefenceConnectConfiguration["headline_tag"],
+    "file_path": f"./{today}-maritime-antisub\\{today}-summary.txt",
+    "output": f"{today}-maritime-antisub\\{today}-maritime-antisub-output.html"
+}
+
+
 GoAutoNews = {
     "url": "https://www.goauto.com.au/news",
     "subDirectoryRegexMatch": "/news/.*/.*/.*/.*/\d+",
@@ -129,7 +147,7 @@ SMHBankingandFinance = {
     "headline_tag": SMHBusinessConfiguration["headline_tag"]
 }
 
-dictionary = [SMHBankingandFinance] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
+dictionary = [DefenceConnectMaritimeAntiSub] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
 
 
 """
