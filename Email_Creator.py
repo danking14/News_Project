@@ -17,7 +17,7 @@ DefenceConnectConfiguration = {
     "ids_to_exclude": ["photogalleries", "latest-jobs", "majorprojects"],
     "strings_to_exclude": ["Get notifications in real-time for staying up to date with content that matters to you.", "Already have an account? Sign in below:", "Subscribe to the Defence Connect daily newsletter. Be the first to hear the latest developments in the defence industry.", "More to follow"],
     "parentURL": "https://www.defenceconnect.com.au",
-    "headline_tag": "b-article__title",
+    "headline_tag": ".b-article__title", #append with . if class or # if id. For example, ".b-article__title" or "#b-article__title"
 }
 
 GoAutoConfiguration = {
@@ -25,7 +25,7 @@ GoAutoConfiguration = {
     "ids_to_exclude": None,
     "strings_to_exclude": None,
     "parentURL": "https://www.goauto.com.au/",
-    "headline_tag": "h1"
+    "headline_tag": "#article_lead"
 }
 
 DefenceConnectLand = {
@@ -93,7 +93,7 @@ GoAutoNews = {
 }
 
 
-dictionary = [DefenceConnectIntelCyber, DefenceConnectLand, DefenceConnectStrikeAirCombat]
+dictionary = [GoAutoNews]
 
 try:
      scrape_all_urls(dictionary)
@@ -102,14 +102,10 @@ except Exception as e:
         f.write("Error in running scrape_all_urls :")
         f.write(traceback.format_exc())
 
- # # Need to allow some time to scrape links
-time.sleep(3)
+
 
 extract_all_articles(dictionary)
 
-# # # Need to allow some time to scrape articles
-time.sleep(6)
+# summarize_all_articles(dictionary)
 
-summarize_all_articles(dictionary)
-
-process_all_files(dictionary)
+# process_all_files(dictionary)

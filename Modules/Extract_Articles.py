@@ -20,13 +20,21 @@ def extract_headline(link, headline_tag):
     try:
         page = requests.get(link)
         soup = BeautifulSoup(page.content, 'html.parser', from_encoding='utf-8')
-        headlines = soup.find_all(class_=headline_tag)
+        if headline_tag.startswith("."):
+            headlines = soup.find_all(class_=headline_tag[1:])
+        elif headline_tag.startswith("#"):
+            headlines = soup.find_all(id=headline_tag[1:])
+        elif headline_tag.startswith("h"):
+            headlines = soup.find_all(headline_tag)
+        else:
+            headlines = soup.find_all(class_=headline_tag)
         if headlines:
             return [headline.get_text() for headline in headlines]
         else:
-            raise ValueError(f"No element with the class {headline_tag} was found on the page")
+            raise ValueError(f"No element with the {headline_tag} was found on the page")
     except Exception as e:
         print(f"An error occurred while processing link {link}: {e}")
+
 
 
 def extract_articles(file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None, headline_tag=None):
