@@ -13,7 +13,7 @@ def process_file(file_path, output):
     for article in articles:
         lines = article.split("\n")
         processed_lines = []
-        for line in lines:
+        for line in lines:            
             line = line.replace("ARTICLE DELIMITER", "")
             if line.startswith("HEADLINE"):
                 line = line[8:]

@@ -28,6 +28,14 @@ GoAutoConfiguration = {
     "headline_tag": "#article_lead"
 }
 
+SMHBusinessConfiguration = {
+    "classes_to_exclude": "selecta",
+    "ids_to_exclude": ["article_dateline", "article_byline"],  
+    "strings_to_exclude": None,
+    "parentURL": "https://www.smh.com.au/business/",
+    "headline_tag": "h1"
+}
+
 DefenceConnectLand = {
     "url": "https://www.defenceconnect.com.au/land-amphibious",
     "subDirectoryRegexMatch": "/land-amphibious/\d+",
@@ -95,20 +103,36 @@ GoAutoNews = {
     "headline_tag": GoAutoConfiguration["headline_tag"]
 }
 
+SMHBankingandFinance = {
+    "url": "https://www.smh.com.au/business/banking-and-finance",
+    "subDirectoryRegexMatch": "banking-and-finance",
+    "filterString": "placeholder",
+    "newsSourceName": "smh-banking-finance",
+    "classes_to_exclude": SMHBusinessConfiguration["classes_to_exclude"],
+    "ids_to_exclude": SMHBusinessConfiguration["ids_to_exclude"],
+    "strings_to_exclude": SMHBusinessConfiguration["strings_to_exclude"],
+    "folder_path": f"./{today}-smh-banking-finance",
+    "file_name": f"{today}-smh-banking-finance\\{today}-smh-banking-finance-links.txt",
+    "parentURL": SMHBusinessConfiguration["parentURL"],
+    "apiKey": GlobalConfiguration["apiKey"],
+    "file_path": f"./{today}-smh-banking-finance\\{today}-summary.txt",
+    "output": f"{today}-smh-banking-finance\\{today}-smh-banking-finance-output.html",
+    "headline_tag": SMHBusinessConfiguration["headline_tag"]
+}
 
-dictionary = [GoAutoNews, DefenceConnectLand, DefenceConnectIntelCyber, DefenceConnectStrikeAirCombat]
+dictionary = [SMHBankingandFinance]
 
-try:
-     scrape_all_urls(dictionary)
-except Exception as e:
-    with open("error.txt", "a", encoding='utf8') as f:
-        f.write("Error in running scrape_all_urls :")
-        f.write(traceback.format_exc())
+# try:
+#      scrape_all_urls(dictionary)
+# except Exception as e:
+#     with open("error.txt", "a", encoding='utf8') as f:
+#         f.write("Error in running scrape_all_urls :")
+#         f.write(traceback.format_exc())
 
 
 
-extract_all_articles(dictionary)
+# extract_all_articles(dictionary)
 
-summarize_all_articles(dictionary)
+# summarize_all_articles(dictionary)
 
 process_all_files(dictionary)
