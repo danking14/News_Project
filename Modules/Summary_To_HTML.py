@@ -21,7 +21,7 @@ def process_file(file_path, output):
                 line = line.replace("]", "")
                 line = line.replace("'", "")
                 line = line.replace(":", "")
-                processed_lines.append("<h1>" + line + "</h1>")
+                processed_lines.append("<h3>" + line + "</h3>")
                 processed_lines.append("<ol>")
             elif line.startswith("-"):
                 processed_lines.append("<li>" + line[2:] + "</li>")
@@ -36,6 +36,8 @@ def process_file(file_path, output):
         open(output, 'w')
     with open(output, 'w', encoding='utf-8') as out:
         out.write(final_text)
+        
+
 
 
 def process_all_files(options):

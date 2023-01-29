@@ -21,8 +21,8 @@ DefenceConnectConfiguration = {
 }
 
 GoAutoConfiguration = {
-    "classes_to_exclude": None,
-    "ids_to_exclude": None,
+    "classes_to_exclude": "selecta",
+    "ids_to_exclude": ["article_dateline", "article_byline"],  
     "strings_to_exclude": None,
     "parentURL": "https://www.goauto.com.au/",
     "headline_tag": "#article_lead"
@@ -80,8 +80,8 @@ DefenceConnectStrikeAirCombat = {
 
 GoAutoNews = {
     "url": "https://www.goauto.com.au/news",
-    "subDirectoryRegexMatch": None,
-    "filterString": None,
+    "subDirectoryRegexMatch": "/news/.*/.*/.*/.*/\d+",
+    "filterString": "placeholder",
     "newsSourceName": "go-auto-news",
     "classes_to_exclude": GoAutoConfiguration["classes_to_exclude"],
     "ids_to_exclude": GoAutoConfiguration["ids_to_exclude"],
@@ -89,11 +89,14 @@ GoAutoNews = {
     "folder_path": f"./{today}-go-auto-news",
     "file_name": f"{today}-go-auto-news\\{today}-go-auto-news-links.txt",
     "parentURL": GoAutoConfiguration["parentURL"],
-    "apiKey": GlobalConfiguration["apiKey"]
+    "apiKey": GlobalConfiguration["apiKey"],
+    "file_path": f"./{today}-go-auto-news\\{today}-summary.txt",
+    "output": f"{today}-go-auto-news\\{today}-go-auto-news-output.html",
+    "headline_tag": GoAutoConfiguration["headline_tag"]
 }
 
 
-dictionary = [GoAutoNews]
+dictionary = [GoAutoNews, DefenceConnectLand, DefenceConnectIntelCyber, DefenceConnectStrikeAirCombat]
 
 try:
      scrape_all_urls(dictionary)
@@ -106,6 +109,6 @@ except Exception as e:
 
 extract_all_articles(dictionary)
 
-# summarize_all_articles(dictionary)
+summarize_all_articles(dictionary)
 
-# process_all_files(dictionary)
+process_all_files(dictionary)
