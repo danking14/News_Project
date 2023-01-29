@@ -1,3 +1,4 @@
 OpenAI_APIKey.txt
 # ignore folders starting with YYYY_MM_DD
 /20*
+/Dev Tools
