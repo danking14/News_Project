@@ -16,7 +16,20 @@ def read_links(file_name):
         links = file.read().split(',')
     return links
 
-def extract_articles(file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None):
+def extract_headline(link, headline_tag):
+    try:
+        page = requests.get(link)
+        soup = BeautifulSoup(page.content, 'html.parser', from_encoding='utf-8')
+        headlines = soup.find_all(class_=headline_tag)
+        if headlines:
+            return [headline.get_text() for headline in headlines]
+        else:
+            raise ValueError(f"No element with the class {headline_tag} was found on the page")
+    except Exception as e:
+        print(f"An error occurred while processing link {link}: {e}")
+
+
+def extract_articles(file_name, folder_path, classes_to_exclude=None, ids_to_exclude=None, strings_to_exclude=None, headline_tag=None):
     today = date.today().strftime("%Y_%m_%d")
     with open(file_name, 'r', encoding='utf-8') as file:
         links = file.read().split(',')
@@ -40,12 +53,16 @@ def extract_articles(file_name, folder_path, classes_to_exclude=None, ids_to_exc
 
             paragraphs = soup.find_all('p')
             content = ''
+            headline = extract_headline(link, headline_tag)
+            content += f"HEADLINE: {headline}\n"
+
             if paragraphs:
                 for paragraph in paragraphs:
                     if any(string in paragraph.getText() for string in strings_to_exclude or []):
                         continue
                     content += paragraph.getText()
                     content += '\n'
+                content += '\n'
                 content += link
                 file_name = f"{folder_path}\\{today}_{link.split('/')[-1]}.txt"
                 with open(file_name, "w", encoding='utf-8') as f:
@@ -55,4 +72,4 @@ def extract_articles(file_name, folder_path, classes_to_exclude=None, ids_to_exc
 
 def extract_all_articles(linkFiles):
     for linkFile in linkFiles:
-        extract_articles(linkFile["file_name"], linkFile["folder_path"], linkFile["classes_to_exclude"], linkFile["ids_to_exclude"], linkFile["strings_to_exclude"])
+        extract_articles(linkFile["file_name"], linkFile["folder_path"], linkFile["classes_to_exclude"], linkFile["ids_to_exclude"], linkFile["strings_to_exclude"], linkFile["headline_tag"])

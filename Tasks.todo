@@ -13,6 +13,11 @@ Article Scraper:
 AI Summariser:
     ☐ Add headline at top of each article. Use the end of each link.
 
+HTML Formatter:
+    ☐ Build a HTML Formatter that takes Summary Files and outputs a tidy HTML file with a table of contents and links to each article.
+    ☐ Each formatted output should be by website and date. It should have a title, table of contents, and links to each article.
+
+
 
 
 
