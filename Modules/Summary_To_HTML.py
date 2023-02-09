@@ -5,6 +5,7 @@ import os
 This function splits a text file into a list of articles. This is passed to the process_file function.
 The file_path argument is the path of the file to split, which is the summary file created by the OpenAI Summarisation module.
 """
+    
 def get_articles_from_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         text = file.read()
