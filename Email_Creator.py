@@ -148,7 +148,7 @@ SMHBankingandFinance = {
     "headline_tag": SMHBusinessConfiguration["headline_tag"]
 }
 #DefenceConnectLand, DefenceConnectIntelCyber, DefenceConnectStrikeAirCombat, DefenceConnectMaritimeAntiSub, GoAutoNews, SMHBankingandFinance
-dictionary = [SMHBankingandFinance] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
+dictionary = [DefenceConnectLand, DefenceConnectIntelCyber, DefenceConnectStrikeAirCombat, DefenceConnectMaritimeAntiSub, GoAutoNews] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
 
 
 """
