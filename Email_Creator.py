@@ -3,9 +3,10 @@ from Modules.Extract_Articles import extract_all_articles
 from Modules.OpenAI_Summarisation import summarize_all_articles
 from Modules.OpenAI_Summarisation import get_API_key
 from Modules.Summary_To_HTML import process_all_files
-import time
 from datetime import date
+import os
 import traceback
+
 today = date.today().strftime("%Y_%m_%d")
 
 """
@@ -59,7 +60,7 @@ DefenceConnectLand = {
     "apiKey": GlobalConfiguration["apiKey"],
     "headline_tag": DefenceConnectConfiguration["headline_tag"],
     "file_path": f"./{today}-land-amphibious\\{today}-summary.txt",
-    "output": f"{today}-land-amphibious\\{today}-land-amphibious-output.html"
+    "output": f"./{today}-land-amphibious-output.html",
 }
 DefenceConnectIntelCyber = {
     "url": "https://www.defenceconnect.com.au/intel-cyber",
@@ -75,7 +76,7 @@ DefenceConnectIntelCyber = {
     "apiKey": GlobalConfiguration["apiKey"],
     "headline_tag": DefenceConnectConfiguration["headline_tag"],
     "file_path": f"./{today}-intel-cyber\\{today}-summary.txt",
-    "output": f"{today}-intel-cyber\\{today}-intel-cyber-output.html"
+    "output": f"./{today}-intel-cyber-output.html",
 }
 
 DefenceConnectStrikeAirCombat = {
@@ -92,7 +93,7 @@ DefenceConnectStrikeAirCombat = {
     "apiKey": GlobalConfiguration["apiKey"],
     "headline_tag": DefenceConnectConfiguration["headline_tag"],
     "file_path": f"./{today}-strike-air-combat\\{today}-summary.txt",
-    "output": f"{today}-strike-air-combat\\{today}-strike-air-combat-output.html"
+    "output": f"./{today}-strike-air-combat-output.html",
 }
 
 DefenceConnectMaritimeAntiSub = {
@@ -109,7 +110,7 @@ DefenceConnectMaritimeAntiSub = {
     "apiKey": GlobalConfiguration["apiKey"],
     "headline_tag": DefenceConnectConfiguration["headline_tag"],
     "file_path": f"./{today}-maritime-antisub\\{today}-summary.txt",
-    "output": f"{today}-maritime-antisub\\{today}-maritime-antisub-output.html"
+    "output": f"./{today}-maritime-antisub-output.html",
 }
 
 
@@ -126,7 +127,7 @@ GoAutoNews = {
     "parentURL": GoAutoConfiguration["parentURL"],
     "apiKey": GlobalConfiguration["apiKey"],
     "file_path": f"./{today}-go-auto-news\\{today}-summary.txt",
-    "output": f"{today}-go-auto-news\\{today}-go-auto-news-output.html",
+    "output": f"./{today}--go-auto-news-output.html",
     "headline_tag": GoAutoConfiguration["headline_tag"]
 }
 
@@ -143,11 +144,11 @@ SMHBankingandFinance = {
     "parentURL": SMHBusinessConfiguration["parentURL"],
     "apiKey": GlobalConfiguration["apiKey"],
     "file_path": f"./{today}-smh-banking-finance\\{today}-summary.txt",
-    "output": f"{today}-smh-banking-finance\\{today}-smh-banking-finance-output.html",
+    "output": f"./{today}-smh-banking-finance-output.html",
     "headline_tag": SMHBusinessConfiguration["headline_tag"]
 }
-
-dictionary = [DefenceConnectMaritimeAntiSub] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
+#DefenceConnectLand, DefenceConnectIntelCyber, DefenceConnectStrikeAirCombat, DefenceConnectMaritimeAntiSub, GoAutoNews, SMHBankingandFinance
+dictionary = [SMHBankingandFinance] #This is the list of dictionaries that will be used to scrape the articles. Add more dictionaries to scrape more articles.
 
 
 """

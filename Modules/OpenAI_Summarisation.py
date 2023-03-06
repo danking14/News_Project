@@ -26,6 +26,7 @@ def summarize_articles(folder_path, apiKey):
     summary_file = f"{folder_path}\\{today}-summary.txt"
 
     print("Summarising dot points using OpenAI API now...")
+       
     with open(summary_file, "a", encoding='utf8') as f:
         # total_files = len([name for name in os.listdir(folder_path) if name.endswith(".txt") and '-links' not in name and '-summary' not in name])
         # done_files = 0
@@ -41,7 +42,7 @@ def summarize_articles(folder_path, apiKey):
                     noLinkArticle = lines[:-1] #This is everything except the last line of the file.
                     article = ''.join(map(str,noLinkArticle)) #This joins the list of lines into a string. OpenAI seems to prefer a single string.
                     print(article)
-                    prompt = f"Can you summarise this news article into five key points. The points should be tagged with a hyphen and space. Like this: - Point 1. Here is the article: {article}"
+                    prompt = f"Can you summarise this news article into five key points. The points should be tagged with a hyphen and space. Here is the article: {article}"
                     summary = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=750, api_key=apiKey)
                     print(headline)
                     print(summary.choices[0].text)
