@@ -1,0 +1,17 @@
+Problem: The maps on the HQOTM are not being shared properly over the network.
+
+Solution:
+
+To start, log in as iBMS Admin on any of the iBMS VMs. Then, open a terminal window and navigate to the root directory by typing "cd /". Type "ls" to list the contents of the directory and check if the mapdrive folder is green (or blue).
+
+If it is green, navigate to it by typing "cd mapdrive" and type "ls" to check if the actual map folders are shared across the network. If the mapdrive folder is not green, there is an issue with sharing the maps.
+
+To confirm, log in to SHQVM and go to File Explorer. Right-click on Computer, select Manage, and click on Shares, File Shares (or similar). Check that the nanomaps folder is being shared as mapdrives and that the cifsmapdrive account has access to the folder.
+
+While still in Manage, go to Users and check the properties of the cifsmapdrive account. If the account is locked out, there may be a password mismatch issue. The linux machine will continuously try to access the maps, causing the account to lock out quickly if the password is wrong.
+
+On the linux VM logged in as ibms admin, open the terminal and enter "sudo cat /etc/.auto.cifs.creds". This command will output the password required for the next step. We recommend copying it letter for letter onto an engineering laptop or similar, as it is a long alphanumeric password that can be difficult to get right.
+
+Back on the SHQ VM, right-click on the cifsmapdrive account and select "Set Password." Set the password from the linux machine, ensuring that the cifsmapdrive account is not locked out.
+
+By following these steps, you should be able to resolve the issue of maps not being properly shared across the network.
