@@ -46,8 +46,8 @@ def summarize_articles(folder_path, apiKey):
                     summary = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=750, api_key=apiKey)
                     print(headline)
                     print(summary.choices[0].text)
-                    f.write(f"{headline}")
-                    f.write(summary.choices[0].text)
+                    f.write(f"{headline}\n")
+                    f.write(f"{summary.choices[0].text}\n")
                     f.write(f"\n\n{link}\n\n") #This adds the link to the end of the summary.
                     f.write(f"\n\nARTICLE DELIMITER\n\n")
                     time.sleep(5)
